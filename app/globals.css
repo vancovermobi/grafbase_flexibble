@@ -68,7 +68,7 @@ body {
 
 /* Project Actions */
 .edit-action_btn {
-  @apply p-3 text-gray-100 bg-light-white-400 rounded-lg text-sm font-medium;
+  @apply p-3 text-gray-100 bg-light-white-400 rounded-lg text-sm font-medium hover:bg-amber-400;
 }
 
 .delete-action_btn {

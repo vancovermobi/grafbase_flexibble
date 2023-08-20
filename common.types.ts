@@ -30,7 +30,7 @@ export interface UserProfile {
     name: string;
     email: string;
     description: string | null;
-    avatarUrl: string;
+    avatarUrl: string | null;
     githubUrl: string | null;
     linkedinUrl: string | null;
     projects: {
