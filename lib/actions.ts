@@ -45,7 +45,7 @@ export const fetchToken = async () => {
     try {
         const response = await fetch(`${serverUrl}/api/auth/token`)
 
-        console.log("action/Fetch Token=ok:", response);
+        //console.log("action/Fetch Token=ok:", response);
 
         return response.json()
     } catch (error: any) {
@@ -109,9 +109,7 @@ export const createNewProject = async (form: ProjectForm, creatorId: string, tok
           }
         }
       };
-      
-      console.log("action/createNewProject= ok:", imageUrl)
-
+      //console.log("action/createNewProject= ok:", imageUrl)
       return makeGraphQLRequest(createProjectMutation, variables);
     }
 };

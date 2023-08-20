@@ -28,7 +28,6 @@ export const authOptions: NextAuthOptions = {
     },
     decode: ({ secret, token }) => {
       const decodedToken = jsonwebtoken.verify(token!, secret)
-
       return decodedToken as JWT
     },
   },
@@ -60,7 +59,7 @@ export const authOptions: NextAuthOptions = {
         }        
     },
     async signIn ({ user }: { user:  User }) {
-      console.log('User_SignIn:', user);
+      //console.log('User_SignIn:', user);
         try {
             // get the user if they exits
             const userExits = await getUser(user?.email as string) as { user?: UserProfile }
@@ -68,13 +67,13 @@ export const authOptions: NextAuthOptions = {
             console.log("userExits:", userExits);
 
             if(!userExits.user) {
-              console.log('user not exits. create new user');
+              //console.log('user not exits. create new user');
               await createUser(
                 user.name as string,
                 user.email as string,
                 user.image as string,
               )
-              console.log("create new user finish");
+              //console.log("create new user finish");
             }
 
             // if they don't exits, create them
