@@ -1,5 +1,5 @@
 declare module "cookie" {
-  export function parse(str, options) {
+  export function parse(str, options): string {
     if (typeof str !== "string") {
       throw new TypeError("argument str must be a string");
     }
