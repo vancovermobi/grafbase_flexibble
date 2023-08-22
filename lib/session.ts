@@ -1,4 +1,3 @@
-import { AdapterUser } from "../node_modules/next-auth/src/adapters";
 import { getServerSession } from "next-auth/next";
 import { NextAuthOptions, User } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
