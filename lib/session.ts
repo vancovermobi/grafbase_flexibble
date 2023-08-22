@@ -54,7 +54,7 @@ export const authOptions: NextAuthOptions = {
           return newSession
 
         } catch (error: any) {
-          console.log("Error retrieving user date", error);
+          console.log("Error retrieving user date: ", error);
           return session
         }        
     },
