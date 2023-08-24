@@ -63,7 +63,7 @@ export const authOptions: NextAuthOptions = {
             // get the user if they exits
             const userExits = await getUser(user?.email as string) as { user?: UserProfile }
 
-            console.log("userExits:", userExits);
+            //console.log("userExits:", userExits);
 
             if(!userExits.user) {
               //console.log('user not exits. create new user');
