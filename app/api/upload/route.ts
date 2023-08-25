@@ -8,12 +8,12 @@ cloudinary.config({
 })
 
 // Test 
-export async function GET(req: Request ) {
-    return NextResponse.json( 
-        { message: "Get upload image on"},
-        { status: 200 }
-    )
-}
+// export async function GET(req: Request ) {
+//     return NextResponse.json( 
+//         { message: "Get upload image on"},
+//         { status: 200 }
+//     )
+// }
 
 export async function POST(req: Request ) {
     const { path } = await req.json()
