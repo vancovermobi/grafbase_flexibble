@@ -16,7 +16,7 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   jwt: {
-    encode: ({ secret, token }) => {
+   encode: ({ secret, token }) => {
       const encodedToken = jsonwebtoken.sign({
         ...token,
         iss: 'grafbase',
