@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter,redirect } from 'next/navigation'
 import Image from "next/image";
 import { signOut } from "next-auth/react";
 import { Fragment, useState } from "react";
@@ -11,7 +12,12 @@ import { SessionInterface } from "@/common.types";
 const ProfileMenu = ({ session }: { session: SessionInterface }) => {
   const [openModal, setOpenModal] = useState(false);
 
-  return (
+  const handleSignOut = () => {
+    signOut()
+    redirect("/")
+  }
+
+  return ( 
     <div className="flexCenter z-10 flex-col relative">
       <Menu as="div">
         <Menu.Button
@@ -93,7 +99,7 @@ const ProfileMenu = ({ session }: { session: SessionInterface }) => {
                 <button
                   type="button"
                   className="text-sm"
-                  onClick={() => signOut()}
+                  onClick={() => handleSignOut()}
                 >
                   Sign out
                 </button>
