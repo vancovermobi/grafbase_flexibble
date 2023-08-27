@@ -14,9 +14,9 @@ const client = new GraphQLClient(apiUrl)
 
 // User ====
 const makeGraphQLRequest = async (query: string, variables = {}) => {
-    console.log("Action_apiUrl: ", apiUrl);
-    console.log("Action_apiKey: ", apiKey);
-    console.log("Action_serverUrl: ", serverUrl);
+    //console.log("Action_apiUrl: ", apiUrl);
+    //console.log("Action_apiKey: ", apiKey);
+    //console.log("Action_serverUrl: ", serverUrl);
     try {
         return await client.request(query, variables)
     } catch (error:any) {
@@ -46,9 +46,8 @@ export const createUser = (name:string, email: string, avatarUrl: string) => {
 // Token ====
 export const fetchToken = async () => {
     try {
+        
         const response = await fetch(`${serverUrl}/api/auth/token`)
-
-        //console.log("action/Fetch Token=ok:", response);
 
         return response.json()
     } catch (error: any) {

@@ -31,19 +31,19 @@ export const revalidate = 0;
 
 const  Home = async ({ searchParams: { category, endcursor }} : Props ) => { 
  
-  // const data = await fetchAllProjects(category, endcursor) as ProjectSearch
+  const data = await fetchAllProjects(category, endcursor) as ProjectSearch
 
-  // const projectsToDisplay = data?.projectSearch?.edges || []
+  const projectsToDisplay = data?.projectSearch?.edges || []
 
-  // if(projectsToDisplay.length===0){
-  //   return (
-  //     <section className='flexStart flex-col paddings'>
-  //       <Categories />
+  if(projectsToDisplay.length===0){
+    return (
+      <section className='flexStart flex-col paddings'>
+        <Categories />
 
-  //       <p className="no-result-text text-center">No projects found, go crearte some first.</p>
-  //     </section>
-  //   )
-  // }
+        <p className="no-result-text text-center">No projects found, go crearte some first.</p>
+      </section>
+    )
+  }
   
 
   return (
@@ -51,7 +51,7 @@ const  Home = async ({ searchParams: { category, endcursor }} : Props ) => {
 
       <Categories />
       
-      {/* <section className='projects-grid'>
+      <section className='projects-grid'>
         {projectsToDisplay.map(({ node }: { node: ProjectInterface }) => (
           <ProjectCard 
             key={ node?.id }
@@ -63,7 +63,7 @@ const  Home = async ({ searchParams: { category, endcursor }} : Props ) => {
             userId    ={ node?.createdBy?.id }
           />
         ))}
-      </section> */}
+      </section>
 
       {/* <LoadMore
         startCursor={data?.projectSearch?.pageInfo?.startCursor} 
