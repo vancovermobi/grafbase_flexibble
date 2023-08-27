@@ -14,10 +14,13 @@ const client = new GraphQLClient(apiUrl)
 
 // User ====
 const makeGraphQLRequest = async (query: string, variables = {}) => {
+    console.log("Action_apiUrl: ", apiUrl);
+    console.log("Action_apiKey: ", apiKey);
+    console.log("Action_serverUrl: ", serverUrl);
     try {
         return await client.request(query, variables)
     } catch (error:any) {
-        console.log('makeGraphQLRequest:', error);
+        console.log('makeGraphQLRequest_Error:', error);
         throw error
     }
 }
@@ -91,7 +94,7 @@ export const getProjectDetails = (id: string) => {
 }
 export const createNewProject = async (form: ProjectForm, creatorId: string, token: string) => {
     
-    //console.log("createNewProject/form:", form)
+    client.setHeader("x-api-key", apiKey)
 
     const imageUrl = await uploadImage(form.image);
 
