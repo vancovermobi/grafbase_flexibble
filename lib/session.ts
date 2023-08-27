@@ -82,7 +82,16 @@ export const authOptions: NextAuthOptions = {
             console.log("Error_signIn: ", error);
             return false
         }
-    }
+    },
+    async redirect({ url, baseUrl }) {
+      //this is the default behavior
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url}`
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url
+      return baseUrl
+     //Youcan add and modify it your usecase here
+    },
   },
 
 };
